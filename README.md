@@ -2,7 +2,7 @@
 
 ## Install Packages
 
-From the route directory lets install the packages
+From the root directory lets install the packages
 
 `dotnet new install .\`
 
@@ -19,6 +19,8 @@ create an `output` folder in the root directory
 `mkdir output`
 `cd output`
 
+### Create template using MS template
+
 In the output directory, run the command to create a new web api project.
 
 `dotnet new webapi`
@@ -27,9 +29,12 @@ With the web api working, we can now install our templates incrementally.
 
 ### Install Cosmos
 
+From the output directory
+
 `dotnet new stacks-cosmos`
 
 ### Install Mongo
 
-`dotnet new stacks-mongo`
+From the output directory
 
+`dotnet new stacks-mongo`
