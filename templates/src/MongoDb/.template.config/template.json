@@ -1,0 +1,60 @@
+{
+  "$schema": "http://json.schemastore.org/template",
+  "author": "Chris Butler",
+  "classifications": [ "csharp", "MongoDb", "Mongo"],
+  "identity": "Chris.Butler.Templates.Mongo",
+  "name": "Mongo Template",
+  "description": "A Mongo template",
+  "shortName": "stacks-mongo",
+  "tags": {
+    "language": "C#",
+    "type": "item"
+  },
+  "symbols": {
+    "namespace": {
+      "description": "Namespace for the generated code",
+      "replaces": "Company",
+      "type": "parameter"
+    }
+  },
+  "postActions": [
+    {
+      "description": "Install NuGet package",
+      "actionId": "3A7C4B45-1F5D-4A30-959A-51B88E82B5D2",
+      "continueOnError": false,
+      "manualInstructions": [
+        {
+          "text": "Run 'dotnet add package MongoDB.Driver' to add the required package."
+        }
+      ],
+      "args": {
+        "executable": "dotnet",
+        "args": "add package MongoDB.Driver",
+        "redirectStandardOutput": false,
+        "redirectStandardError": false
+      },
+      "verbs": [
+        "add"
+      ]
+    },
+    {
+      "description": "Install HealthCheck NuGet package",
+      "actionId": "3A7C4B45-1F5D-4A30-959A-51B88E82B5D2",
+      "continueOnError": false,
+      "manualInstructions": [
+        {
+          "text": "Run 'dotnet add package AspNetCore.HealthChecks.MongoDb' to add the required package."
+        }
+      ],
+      "args": {
+        "executable": "dotnet",
+        "args": "add package AspNetCore.HealthChecks.MongoDb",
+        "redirectStandardOutput": false,
+        "redirectStandardError": false
+      },
+      "verbs": [
+        "add"
+      ]
+    }
+  ]
+}
