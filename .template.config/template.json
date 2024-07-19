@@ -1,0 +1,65 @@
+{
+  "$schema": "http://json.schemastore.org/template",
+  "author": "Chris Butler",
+  "classifications": ["Common", "Web"],
+  "identity": "Chris.Butler",
+  "name": "Template-Spike",
+  "shortName": "template-spike",
+  "tags": {
+    "language": "C#",
+    "type": "project"
+  },
+  "sourceName": "TemplateSpike",
+  "preferNameDirectory": true,
+  "symbols": {
+    "cosmos": {
+      "type": "parameter",
+			"dataType": "bool",
+			"defaultValue": "false"
+    },
+    "mongo": {
+      "type": "parameter",
+			"dataType": "bool",
+			"defaultValue": "false"
+    }
+  },
+	"sources": [
+		{
+			"source": "./",
+			"include": [
+				"**/*"
+			],
+			"exclude": [
+				"**/[Bb]in/**",
+				"**/[Oo]bj/**",
+				"**/.template.config/**",
+				"**/*.filelist",
+				"**/*.user",
+				"**/*.lock.json",
+				"**/.git/**",
+				"**/.vs/**",
+				"**/.vscode/**",
+				"_rels/**",
+				"package/**",
+				"**/*.nuspec",
+				"*Content_Types*.xml"
+			],
+      "modifiers": [
+        {
+          "condition": "cosmos",
+          "include": [
+            "Data/CosmosDb/**"
+          ],
+          "exclude": [
+            "**/*"
+          ]
+        },
+        {
+          "condition": "mongo",
+          "exclude": [
+          ]
+        }
+      
+    }
+  ]
+}
