@@ -2,7 +2,7 @@
   "$schema": "http://json.schemastore.org/template",
   "author": "Chris Butler",
   "classifications": ["Common", "Web"],
-  "identity": "Chris.Butler",
+  "identity": "Chris.Butler.Template.Project",
   "name": "Template-Spike",
   "shortName": "template-spike",
   "tags": {
@@ -42,7 +42,7 @@
   },
 	"sources": [
 		{
-			"source": "../",
+			"source": "../../",
 			"include": [
 				"**/*"
 			],
@@ -65,6 +65,11 @@
 			],
       "modifiers": [
         {
+          "rename": {
+            "shared-folder": "template-project/deep/down/shared-folder"
+          }
+        },
+        {
           "condition": "useCosmos",
           "include": [
             "**/template-project/**/Infrastructure/Cosmos/**"
@@ -75,11 +80,6 @@
           "include": [
             "**/template-project/**Infrastructure/Mongo/**"
           ]
-        },
-        {
-          "rename": {
-            "shared-folder": "template-project/deep/down/shared-folder"
-          }
         }
       ]
     }

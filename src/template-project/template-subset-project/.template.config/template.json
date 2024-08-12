@@ -1,0 +1,87 @@
+{
+  "$schema": "http://json.schemastore.org/template",
+  "author": "Chris Butler",
+  "classifications": ["Common", "Web"],
+  "identity": "Chris.Butler.Template.Project.Subset",
+  "name": "Template-Spike-Subset",
+  "shortName": "template-spike-subset",
+  "tags": {
+    "language": "C#",
+    "type": "project"
+  },
+  "sourceName": "TemplateSpike",
+  "preferNameDirectory": true,
+  "symbols": {
+    "database": {
+      "type": "parameter",
+      "description": "The database choice for the project.",
+      "datatype": "choice",
+      "allowMultipleValues": true,
+      "choices": [
+        {
+          "choice": "Cosmos",
+          "description": "Cosmos"
+        },
+        {
+          "choice": "Mongo",
+          "description": "Mongo"
+        }
+      ],
+      "defaultValue": ""
+    },
+    "useCosmos": {
+      "type": "computed",
+      "datatype": "bool",
+      "value": "database == 'Cosmos'"
+    },
+    "useMongo": {
+      "type": "computed",
+      "datatype": "bool",
+      "value": "database == 'Mongo'"
+    }
+  },
+	"sources": [
+		{
+			"source": "../../",
+			"include": [
+				"**/*"
+			],
+			"exclude": [
+				"**/[Bb]in/**",
+				"**/[Oo]bj/**",
+				"**/.template.config/**",
+				"**/*.filelist",
+				"**/*.user",
+				"**/*.lock.json",
+				"**/.git/**",
+				"**/.vs/**",
+				"**/.vscode/**",
+				"_rels/**",
+				"package/**",
+				"**/*.nuspec",
+				"*Content_Types*.xml",
+        "**/Infrastructure/**",
+        "templates/**"
+			],
+      "modifiers": [
+        {
+          "rename": {
+            "shared-folder": "template-project/deep/down/shared-folder"
+          }
+        },
+        {
+          "condition": "useCosmos",
+          "include": [
+            "**/template-project/**/Infrastructure/Cosmos/**"
+          ]
+        },
+        {
+          "condition": "useMongo",
+          "include": [
+            "**/template-project/**Infrastructure/Mongo/**"
+          ]
+        }
+      ]
+    }
+  ]
+}
