@@ -42,7 +42,7 @@
   },
 	"sources": [
 		{
-			"source": "./",
+			"source": "../",
 			"include": [
 				"**/*"
 			],
@@ -60,20 +60,26 @@
 				"package/**",
 				"**/*.nuspec",
 				"*Content_Types*.xml",
-        "**/Infrastructure/**"
+        "**/Infrastructure/**",
+        "templates/**"
 			],
       "modifiers": [
         {
           "condition": "useCosmos",
           "include": [
-            "**/Infrastructure/Cosmos/**"
+            "**/template-project/**/Infrastructure/Cosmos/**"
           ]
         },
         {
           "condition": "useMongo",
           "include": [
-            "**/Infrastructure/Mongo/**"
+            "**/template-project/**Infrastructure/Mongo/**"
           ]
+        },
+        {
+          "rename": {
+            "shared-folder/shared.file.txt": "template-project/deep/down/shared-folder/shared.file.txt"
+          }
         }
       ]
     }
