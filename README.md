@@ -10,7 +10,7 @@ From the root directory lets install the packages
 
 From the root directory
 
-`dotnet new uninstall .\templates`
+`dotnet new uninstall .\`
 
 ## Testing
 
@@ -38,3 +38,11 @@ From the output directory
 From the output directory
 
 `dotnet new stacks-mongo`
+
+### Create project in one go
+
+` dotnet new template-spike --database Cosmos`
+
+Where `-database` is an optional parameter that takes the following arguments: 
+- `Cosmos` 
+- `Mongo`

@@ -1,11 +1,11 @@
 {
   "$schema": "http://json.schemastore.org/template",
   "author": "Chris Butler",
-  "classifications": [ "csharp", "MongoDb", "Mongo"],
-  "identity": "Chris.Butler.Templates.Mongo2",
-  "name": "Mongo Template",
-  "description": "A Mongo template",
-  "shortName": "stacks-mongo-2",
+  "classifications": [ "csharp", "Cosmos" ],
+  "identity": "Chris.Butler.Templates.Cosmos",
+  "name": "Cosmos Template",
+  "description": "A Cosmos template",
+  "shortName": "stacks-cosmos",
   "tags": {
     "language": "C#",
     "type": "item"
@@ -17,6 +17,21 @@
       "type": "parameter"
     }
   },
+  "sources": [{
+    "source": "../../",
+    "target": "./",
+    "exclude": [
+      "**/[Bb]in/**",
+      "**/[Oo]bj/**",
+      ".template.config/**/*",
+      "**/*.filelist",
+      "**/*.user",
+      "**/*.lock.json"
+    ],
+    "include": [
+      "Infrastructure/Cosmos/**/*"
+    ]
+  }],
   "postActions": [
     {
       "description": "Install NuGet package",
@@ -24,12 +39,12 @@
       "continueOnError": false,
       "manualInstructions": [
         {
-          "text": "Run 'dotnet add package MongoDB.Driver' to add the required package."
+          "text": "Run 'dotnet add package Microsoft.Azure.Cosmos' to add the required package."
         }
       ],
       "args": {
         "executable": "dotnet",
-        "args": "add package MongoDB.Driver",
+        "args": "add package Microsoft.Azure.Cosmos",
         "redirectStandardOutput": false,
         "redirectStandardError": false
       },
@@ -43,12 +58,12 @@
       "continueOnError": false,
       "manualInstructions": [
         {
-          "text": "Run 'dotnet add package AspNetCore.HealthChecks.MongoDb' to add the required package."
+          "text": "Run 'dotnet add package AspNetCore.HealthChecks.CosmosDb' to add the required package."
         }
       ],
       "args": {
         "executable": "dotnet",
-        "args": "add package AspNetCore.HealthChecks.MongoDb",
+        "args": "add package AspNetCore.HealthChecks.CosmosDb",
         "redirectStandardOutput": false,
         "redirectStandardError": false
       },

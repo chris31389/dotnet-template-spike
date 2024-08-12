@@ -2,10 +2,10 @@
   "$schema": "http://json.schemastore.org/template",
   "author": "Chris Butler",
   "classifications": [ "csharp", "Cosmos" ],
-  "identity": "Chris.Butler.Templates.Cosmos",
+  "identity": "Chris.Butler.Templates.Cosmos2",
   "name": "Cosmos Template",
   "description": "A Cosmos template",
-  "shortName": "stacks-cosmos",
+  "shortName": "stacks-cosmos-2",
   "tags": {
     "language": "C#",
     "type": "item"

@@ -1,4 +1,5 @@
 ﻿using MongoDB.Driver;
+using HealthChecks.MongoDb;
 
 namespace WebApi.Infrastructure.Mongo;
 
@@ -6,8 +7,7 @@ public static class ServiceCollectionExtensions
 {
     public static IServiceCollection AddMongoDb(this IServiceCollection services,
         string connectionStringName,
-        string databaseName,
-        string containerName
+        string databaseName
     ) => services
         .AddSingleton<IMongoClient>(s =>
         {
@@ -22,12 +22,13 @@ public static class ServiceCollectionExtensions
         })
         .AddTransient<IMongoRepository, MongoRepository>()
         .AddHealthChecks()
-        .AddMongoDb(s =>
-        {
-            var configuration = s.GetRequiredService<IConfiguration>();
-            var connectionString = configuration.GetConnectionString(connectionStringName);
-            return connectionString ??
-                   throw new InvalidOperationException($"Connection string is missing, {connectionStringName}");
-        })
-        .Services;
+        // .AddMongoDb(s =>
+        // {
+        //     var configuration = s.GetRequiredService<IConfiguration>();
+        //     var connectionString = configuration.GetConnectionString(connectionStringName);
+        //     return connectionString ??
+        //            throw new InvalidOperationException($"Connection string is missing, {connectionStringName}");
+        // })
+        .Services
+        ;
 }

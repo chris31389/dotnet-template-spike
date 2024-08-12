@@ -12,20 +12,37 @@
   "sourceName": "TemplateSpike",
   "preferNameDirectory": true,
   "symbols": {
-    "cosmos": {
+    "database": {
       "type": "parameter",
-			"dataType": "bool",
-			"defaultValue": "false"
+      "description": "The database choice for the project.",
+      "datatype": "choice",
+      "allowMultipleValues": true,
+      "choices": [
+        {
+          "choice": "Cosmos",
+          "description": "Cosmos"
+        },
+        {
+          "choice": "Mongo",
+          "description": "Mongo"
+        }
+      ],
+      "defaultValue": ""
     },
-    "mongo": {
-      "type": "parameter",
-			"dataType": "bool",
-			"defaultValue": "false"
+    "useCosmos": {
+      "type": "computed",
+      "datatype": "bool",
+      "value": "database == 'Cosmos'"
+    },
+    "useMongo": {
+      "type": "computed",
+      "datatype": "bool",
+      "value": "database == 'Mongo'"
     }
   },
 	"sources": [
 		{
-			"source": "./template",
+			"source": "./",
 			"include": [
 				"**/*"
 			],
@@ -42,28 +59,23 @@
 				"_rels/**",
 				"package/**",
 				"**/*.nuspec",
-				"*Content_Types*.xml"
+				"*Content_Types*.xml",
+        "**/Infrastructure/**"
 			],
       "modifiers": [
         {
-          "condition": "cosmos",
+          "condition": "useCosmos",
           "include": [
-            "**/Infrastructure/CosmosDb/**"
-          ],
-          "exclude": [
-            "**/*"
+            "**/Infrastructure/Cosmos/**"
           ]
         },
         {
-          "condition": "mongo",
+          "condition": "useMongo",
           "include": [
-            "**/Infrastructure/mongo/**"
-          ],
-          "exclude": [
-            "**/*"
+            "**/Infrastructure/Mongo/**"
           ]
         }
-      
+      ]
     }
   ]
 }

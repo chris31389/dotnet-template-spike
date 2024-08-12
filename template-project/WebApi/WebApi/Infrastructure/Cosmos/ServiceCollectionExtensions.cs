@@ -6,7 +6,7 @@ namespace WebApi.Infrastructure.Cosmos;
 
 public static class ServiceCollectionExtensions
 {
-    public static IServiceCollection AddCosmos(this IServiceCollection services,
+    public static IServiceCollection AddCosmosDb(this IServiceCollection services,
         string connectionStringName,
         string databaseName,
         string containerName

@@ -1,3 +1,9 @@
+#if useCosmos
+using WebApi.Infrastructure.Cosmos;
+#endif
+#if useMongo
+using WebApi.Infrastructure.Mongo;
+#endif
 
 namespace WebApi
 {
@@ -8,6 +14,12 @@ namespace WebApi
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
+#if useCosmos
+            builder.Services.AddCosmosDb("","","");
+#endif
+#if useMongo
+            builder.Services.AddMongoDb("","");
+#endif
 
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -24,12 +36,8 @@ namespace WebApi
             }
 
             app.UseHttpsRedirection();
-
             app.UseAuthorization();
-
-
             app.MapControllers();
-
             app.Run();
         }
     }
