@@ -78,7 +78,7 @@
         },
         {
           "rename": {
-            "shared-folder/shared.file.txt": "template-project/deep/down/shared-folder/shared.file.txt"
+            "shared-folder": "template-project/deep/down/shared-folder"
           }
         }
       ]
